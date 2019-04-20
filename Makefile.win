@@ -1,0 +1,40 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o mintime.o minprice.o input.o timeprice.o
+LINKOBJ  = main.o mintime.o minprice.o input.o timeprice.o
+LIBS     = -L"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/lib" -L"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/include" -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/include" -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/下载/CS/C语言编程软件/Dev cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 旅行模式.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CC) -c main.cpp -o main.o $(CFLAGS)
+
+mintime.o: mintime.cpp
+	$(CC) -c mintime.cpp -o mintime.o $(CFLAGS)
+
+minprice.o: minprice.cpp
+	$(CC) -c minprice.cpp -o minprice.o $(CFLAGS)
+
+input.o: input.cpp
+	$(CC) -c input.cpp -o input.o $(CFLAGS)
+
+timeprice.o: timeprice.cpp
+	$(CC) -c timeprice.cpp -o timeprice.o $(CFLAGS)
